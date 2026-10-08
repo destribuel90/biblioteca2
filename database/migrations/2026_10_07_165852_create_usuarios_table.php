@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('correo')->unique();
             $table->string('password');
             $table->string('telefono')->nullable();
+            $table->string('rol', 50)->default('user'); // admin, user
             $table->timestamps();
         });
     }

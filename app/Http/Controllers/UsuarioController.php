@@ -18,7 +18,8 @@ class UsuarioController extends Controller
             'direccion' =>  'required|string|max:255',
             'correo' => 'required|email|unique:usuarios,correo',
             'password' => 'rquired|min:8',
-            'telefomo' => 'nullable|string|max:20'
+            'telefomo' => 'nullable|string|max:20',
+            'rol' => 'required|string|max:50' //admin, user
         ]);
         
         Usuario::create([
@@ -40,7 +41,8 @@ class UsuarioController extends Controller
             'direccion' => 'required|string|max:255',
             'correo' => 'required|email|unique:usuarios, correo' . $usuario->id(),
             'telefono' => 'nullable|string|max:20',
-            'password' => 'nullable|min:8'
+            'password' => 'nullable|min:8',
+            'rol' => 'required|string|max:50'
         ]);
 
         $datos = $request->except(['contraseña']);

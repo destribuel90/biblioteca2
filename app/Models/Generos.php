@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Generos extends Model
 {
-    //
+    protected $fillable = [
+        'nombre_genero'
+    ];
 }

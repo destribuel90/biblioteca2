@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('prestamos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_usuario')->constrained('usuarios'); // Llave Foránea[cite: 4]
+            $table->foreignId('id_libro')->constrained('libros'); // Llave Foránea[cite: 4]
+            $table->date('fecha_prestamo'); //[cite: 4]
+            $table->date('fecha_limite'); //[cite: 4]
+            $table->date('fecha_devolucion')->nullable(); // Puede ser NULL si sigue activo[cite: 4]
+            $table->string('estado'); // Ej. 'Activo', 'Devuelto', 'Atrasado'[cite: 4]
+            $table->decimal('deuda', 8, 2)->default(0); // Multa acumulada[cite: 4]
             $table->timestamps();
         });
     }
